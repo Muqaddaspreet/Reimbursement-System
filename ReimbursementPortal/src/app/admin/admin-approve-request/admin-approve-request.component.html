@@ -1,0 +1,94 @@
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid" id="navDiv1" >
+            <div class="navbar-brand" >Reimbursement Portal</div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExample03">
+                <ul class="navbar-nav ms-auto mb-2 mb-sm-0">
+                    <!-- <a href="/login" class="btn btn-danger btn-small btn-nav" style="float:right;" >Logout</a> -->
+                    <li class="nav-item" style="float:right">
+                        <a class="nav-link" href="/admindash">View reimbursements</a>
+                    </li>
+
+                    <!-- <li class="nav-item" style="float:right">
+                        <a class="nav-link" href="/login">Logout</a>
+                    </li> -->
+                    <!-- <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown03">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>  -->
+                </ul>
+                <form>
+                    <!-- <input class="form-control" type="text" placeholder="Search" aria-label="Search"> -->
+                    <a class="btn btn-outline-danger" href="/login">Logout</a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-image container">
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+            <div class="container h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="card" style="border-radius: 15px 15px 15px 15px; margin-top: 5px; margin-bottom: 45px;">
+                            <div class="card-body p-5">
+                                <h2 class="text-uppercase text-center sm-5">Approve Reimbursement</h2>
+                                <br>
+
+                                <form [formGroup]= "approveData" novalidate (ngSubmit)= "approveCollection()">
+                                    <div class="form-group">
+                                        <label class="col-sm-12" for="approvedBy"><b>Approved By : </b></label>
+                                        <div class="col-sm-12">
+                                            <input type="email" placeholder="Enter the name of the organization" id="approvedBy" formControlName="approvedBy" class="form-control" >
+                                        </div>
+                                        <div class="alert alert-danger" *ngIf="approvedBy && approvedBy.invalid && (approvedBy.dirty ||approvedBy.touched)">
+                                            Approve By field is required.
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-12" for="approvedValue"><b>Approved Value : </b></label>
+                                        <div class="col-sm-12">
+                                            <input type="number" placeholder="Enter the amount to be approved" id="approvedValue" formControlName="approvedValue" required class="form-control">
+                                        </div>
+                                        <div class="alert alert-danger" *ngIf="approvedValue && approvedValue.invalid && (approvedValue.dirty ||approvedValue.touched)">
+                                            Approved Value is required.
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-12" for="internalNotes"><b>Internal Notes : </b></label>
+                                        <div class="col-sm-12">
+                                            <input type="text" placeholder="Enter some internal notes" id="internalNotes" formControlName="internalNotes" class="form-control" >
+                                        </div>
+                                        <div class="alert alert-danger" *ngIf="internalNotes && internalNotes.invalid && (internalNotes.dirty ||internalNotes.touched)">
+                                            Internal notes are required.
+                                        </div>
+                                    </div>
+                    
+                                    <br>
+                                    
+                                    <div class="d-flex justify-content-center">
+                                        <button class="btn btn-success btn-block btn-md gradient-custom-4 text-body text-dark form-control" id="registerBtn" [disabled]="approveData.invalid" type="submit">Approve Reimbursement</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <span>&copy Copyrights Reserved</span>
+</footer>

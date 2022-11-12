@@ -1,0 +1,101 @@
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    bottom: 0;
+    position:fixed;
+    background-color:rgb(33, 37, 41);
+    color: white;
+    border-style: solid;
+    border-color: #333;
+    width: 100%;
+    text-align: center;
+    height: 30px;
+    font-size: 18px;
+    height:40px;
+}
+
+
+#navDiv1{
+    padding-left: 10px; 
+    padding-right: 10px;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+.navbar{
+    margin-top:2px;
+    min-height:70px;
+    display:flex;
+    position:relative;
+}
+
+.container{
+    min-height:100vh;
+    min-width: 100%;
+    justify-content: center;
+}
+
+.pad{
+    margin: 20px;
+    padding-left:40px;
+}
+
+.bg-image {
+    /* The image used */
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+.gradient-custom-3 {
+    /* fallback for old browsers */
+    background: #84fab0;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+}
+.gradient-custom-4 {
+    /* fallback for old browsers */
+    background: #84fab0;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
+}
+
+#registerBtn{
+    border:5ch;
+    height:45px;
+}
+
+.form-control{
+    height:35px;
+}
+/* body{
+    min-height:100vh;
+} */

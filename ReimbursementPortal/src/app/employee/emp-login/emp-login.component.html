@@ -1,0 +1,79 @@
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid" id="navDiv1" >
+            <div class="navbar-brand col-md-7" style="text-align:right; " >Reimbursement Portal</div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarsExample03">
+                <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                    <!-- <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown03">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li> -->
+                </ul>
+                <form>
+                    <!-- <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button> -->
+                    <a class="btn btn-outline-primary" href="/">Registeration Page</a>
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="bg-image container">
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3" >
+            <div class="container h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="card" style="border-radius: 15px 15px 15px 15px; margin-top: 5px; margin-bottom: 45px;">
+                            <div class="card-body p-5">
+                                <h2 class="text-uppercase text-center sm-5">Login</h2>
+                                <br>
+                                
+                                <form class="form-hotizontal" novalidate [formGroup]= "loginData" (ngSubmit)= "Login()">
+                                    <div class="form-group">
+                                        <label class="col-sm-12" for="email"><b>Email ID: </b></label>
+                                        <div class="col-sm-12">
+                                            <input type="email" required pattern="\S+@\S+\.\S+" placeholder="Enter your Email Id" id="email" formControlName="email" required class="form-control">
+                                        </div>
+                                        <div class="alert alert-danger" *ngIf="email && email.invalid && (email.dirty ||email.touched)">
+                                            Email is Required and  format :"abc@xyz.com" 
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-12" for="password"><b>Password: </b></label>
+                                        <div class="col-sm-12">
+                                            <input type="password" placeholder="Enter your Password" id="password" formControlName="password" required class="form-control">
+                                        </div>
+                                        <div class="alert alert-danger" *ngIf="password && password.invalid && (password.dirty ||password.touched)">
+                                            Password is required
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="d-flex justify-content-center">
+                                        <button class="btn btn-success btn-block btn-md gradient-custom-4 text-body text-dark form-control" [disabled]="loginData.invalid" id="registerBtn"  type="submit">Login</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,132 @@
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid" id="navDiv1" >
+            <div class="navbar-brand" >Reimbursement Portal</div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExample03">
+                <ul class="navbar-nav ms-auto mb-2 mb-sm-0">
+                    <!-- <a href="/login" class="btn btn-danger btn-small btn-nav" style="float:right;" >Logout</a> -->
+                    <li class="nav-item" style="float:right">
+                        <a class="nav-link" href="/empdash/{{emailParams}}">My reimbursements</a>
+                    </li>
+
+                    <!-- <li class="nav-item" style="float:right">
+                        <a class="nav-link" href="/login">Logout</a>
+                    </li> -->
+                    <!-- <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown03">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>  -->
+                </ul>
+                <form>
+                    <!-- <input class="form-control" type="text" placeholder="Search" aria-label="Search"> -->
+                    <a class="btn btn-outline-danger" href="/login">Logout</a>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- <nav class="navbar">Student Management System</nav> -->
+    <!-- <a href="/empdash/{{emailParams}}" style="color:blue">Back</a> -->
+    
+    <div class="bg-image container">
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3" >
+            <div class="container h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="card" style="border-radius: 15px 15px 15px 15px; margin-top: 5px; margin-bottom: 45px;">
+                            <div class="card-body p-5">
+                                <h2 class="text-uppercase text-center sm-5">Add Reimbursement</h2>
+                                <br>
+            
+                                <form #form="ngForm" novalidate (submit)="onSubmit(form)">
+                                
+                                    <input type="hidden"id="requestedBy" name="requestedBy" #requestedBy="ngModel" [(ngModel)]= "service.reimbursementData.requestedBy" class="form-control" >
+        
+                                    <div class="form-group">
+                                        <label class="col-sm-12" for="date"><b>Date : </b></label>
+                                        <div class="col-sm-12">
+                                            <input type="date" placeholder="Enter a valid date" id="date"  name="date" #date="ngModel" [(ngModel)]= "service.reimbursementData.date" required class="form-control">
+                                        </div>
+                                        <div class="alert alert-danger" *ngIf="date.invalid && (date.dirty || date.touched)">
+                                            Date is Required and format :"dd-mm-yyyy" 
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-12" for="reimbursementType"><b>Reimbursement Type : </b></label>
+                                        <div class="col-sm-12">
+                                            <select id="reimbursementType" name="reimbursementType" #reimbursementType="ngModel" [(ngModel)]= "service.reimbursementData.reimbursementType" required class="form-control">
+                                                <option value="Medical">Medical</option>
+                                                <option value="Travel">Travel</option>
+                                                <option value="Food">Food</option>
+                                                <option value="Entertainment">Entertainment</option>
+                                                <option value="Misc.">Misc.</option>
+                                              </select>
+                                        </div>
+                                        <div class="alert alert-danger" *ngIf="reimbursementType.invalid && (reimbursementType.dirty || reimbursementType.touched)">
+                                            Please select the type of reimbursement
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-12" for="requestedValue"><b>Requested Value : </b></label>
+                                        <div class="col-sm-12">
+                                            <input type="number" min="1" placeholder="Enter the requested amount" id="requestedValue" name="requestedValue" #requestedValue="ngModel" [(ngModel)]= "service.reimbursementData.requestedValue" required class="form-control">
+                                        </div>
+                                        <div class="alert alert-danger" *ngIf="requestedValue.invalid && (requestedValue.dirty || requestedValue.touched)">
+                                            Requested Value cannot be zero
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-12" for="currency"><b>Currency : </b></label>
+                                        <div class="col-sm-12">
+                                            <select id="currency" name="currency" #currency="ngModel" [(ngModel)]= "service.reimbursementData.currency" required class="form-control">
+                                                <option value="INR">INR</option>
+                                                <option value="USD">USD</option>
+                                                <option value="EURO">EURO</option>
+                                              </select>
+                                        </div>
+                                        <div class="alert alert-danger" *ngIf="currency.invalid && (currency.dirty || currency.touched)">
+                                            Please select the currency
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-12" for="receiptImageLink"><b>Upload Image : </b></label>
+                                        <div class="col-sm-12">
+                                            <input #receiptImageLink="ngModel" [(ngModel)]= "service.reimbursementData.receiptImageLink" type="file" accept=".png,.jpeg,.pdf,.jpg" class="file-upload" id="receiptImageLink" name="receiptImageLink">
+                                        </div>
+                                        <div class="alert alert-danger" *ngIf="fileUploaded && !fileType">
+                                            File should be image and of type jpeg/png/pdf 
+                                        </div>
+                                    </div>
+                    
+                                    <!-- <div class="form-group">
+                                        <label class="col-sm-12" for="receiptImageLink">Image Link : </label>
+                                        <div class="col-sm-12">
+                                            <input type="url" placeholder="Receipt image link" id="receiptImageLink" name="receiptImageLink" #receiptImageLink="ngModel" [(ngModel)]= "service.reimbursementData.receiptImageLink" required class="form-control">
+                                        </div>
+                                    </div> -->
+
+                                    <input type="hidden"id="receiptAttached" name="receiptAttached" #receiptAttached="ngModel" [(ngModel)]= "service.reimbursementData.receiptAttached" class="form-control" >
+                                    <br>
+                                    <div class="d-flex justify-content-center">
+                                        <button class="btn btn-success btn-block btn-md gradient-custom-4 text-body text-dark form-control" id="registerBtn" [disabled]="form.invalid" type="submit">Add Reimbursement</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
